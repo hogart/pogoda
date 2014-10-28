@@ -4,7 +4,7 @@ var assert = require('chai').assert;
 describe('windChill.australianApparentTemperature', function() {
     var aTT = windChill.australianApparentTemperature;
 
-    it('should throw Error when called with isufficient arguments', function () {
+    it('should throw Error when called with insufficient arguments', function () {
         assert.throw(aTT.bind(null), Error);
         assert.throw(aTT.bind(null, 1), Error);
         assert.throw(aTT.bind(null, 1, 2), Error);
@@ -30,7 +30,7 @@ describe('windChill.australianApparentTemperature', function() {
 describe('windChill.windChillIndex', function() {
     var wc = windChill.windChillIndex;
 
-    it('should throw Error when called with isufficient arguments', function () {
+    it('should throw Error when called with insufficient arguments', function () {
         assert.throw(wc.bind(null), Error);
         assert.throw(wc.bind(null, 1), Error);
     });
@@ -42,9 +42,32 @@ describe('windChill.windChillIndex', function() {
 
     it('should throw RangeError when called with too high or too low values', function () {
         assert.throw(wc.bind(null, -500, .5), RangeError);
+        assert.throw(wc.bind(null, 100, .5), RangeError);
     });
 
     it('should return numeric values', function () {
-        assert.typeOf(wc(12, 1), 'number');
+        assert.typeOf(wc(-8, 1), 'number');
+    });
+});
+describe('windChill.windChillIndex.customaryUnits', function() {
+    var wc = windChill.windChillIndex.customaryUnits;
+
+    it('should throw Error when called with insufficient arguments', function () {
+        assert.throw(wc.bind(null), Error);
+        assert.throw(wc.bind(null, 1), Error);
+    });
+
+    it('should throw TypeError when called with non-numeric values', function () {
+        assert.throw(wc.bind(null, undefined, 1), TypeError);
+        assert.throw(wc.bind(null, 1, null), TypeError);
+    });
+
+    it('should throw RangeError when called with too high or too low values', function () {
+        assert.throw(wc.bind(null, -500, .5), RangeError);
+        assert.throw(wc.bind(null, 100, .5), RangeError);
+    });
+
+    it('should return numeric values', function () {
+        assert.typeOf(wc(15, 1), 'number');
     });
 });

@@ -1,0 +1,20 @@
+{
+  "name": "pogoda",
+  "version": "0.2.0",
+  "description": "Collection of weather related formulae: humidex, wind chill index and so on.",
+  "main": "index.js",
+  "keywords": [
+    "weather",
+    "humidex",
+    "humiture",
+    "wind-chill"
+  ],
+  "license": "MIT",
+  "authors": [
+    "Konstantin Kitmanov <doctor.hogart@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "https://github.com/hogart/pogoda"
+}

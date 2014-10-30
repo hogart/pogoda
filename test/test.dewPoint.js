@@ -2,18 +2,18 @@ var dewPoint = require('../../pogoda').dewPoint;
 var assert = require('chai').assert;
 
 describe('dewPoint', function() {
-    it('should throw Error when called with isufficient arguments', function () {
+    it('should throw Error when called with insufficient arguments', function () {
         assert.throw(dewPoint.bind(null), Error);
         assert.throw(dewPoint.bind(null, 1), Error);
     });
 
     it('should throw TypeError when called with non-numeric values', function () {
-        assert.throw(dewPoint.bind(null, undefined, .5), TypeError);
+        assert.throw(dewPoint.bind(null, undefined, 0.5), TypeError);
         assert.throw(dewPoint.bind(null, 24, null), TypeError);
     });
 
     it('should throw RangeError when called with too high or too low values', function () {
-        assert.throw(dewPoint.bind(null, -500, .5), RangeError);
+        assert.throw(dewPoint.bind(null, -500, 0.5), RangeError);
         assert.throw(dewPoint.bind(null, -195.75, -0.1), RangeError);
         assert.throw(dewPoint.bind(null, -195.75, 1.1), RangeError);
     });

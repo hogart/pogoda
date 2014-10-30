@@ -1,6 +1,6 @@
 {
   "name": "pogoda",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Collection of weather related formulae: humidex, wind chill index and so on.",
   "main": "index.js",
   "keywords": [
@@ -11,11 +11,23 @@
   ],
   "license": "MIT",
   "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hogart/pogoda.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/hogart/pgoda/issues"
+  },
+
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "npm run-script unit-test-coverage",
+    "jshint": "./node_modules/.bin/jshint .",
+    "jscs": "./node_modules/jscs/bin/jscs .",
+    "check-style": "npm run-script jshint && npm run-script jscs",
+    "test": "npm run-script check-style && npm run-script unit-test-coverage",
     "unit-test": "./node_modules/.bin/mocha -u bdd -R spec --recursive test",
     "unit-test-coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -u bdd -R spec --recursive test"
   },
@@ -23,6 +35,8 @@
   "devDependencies": {
     "mocha": "~1.21",
     "chai": "~1.9.1",
-    "istanbul": "~0.2.16"
+    "istanbul": "~0.2.16",
+    "jshint": "~2",
+    "jscs": "~1.4"
   }
 }

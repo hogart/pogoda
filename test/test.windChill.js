@@ -17,13 +17,13 @@ describe('windChill.australianApparentTemperature', function() {
     });
 
     it('should throw RangeError when called with too high or too low values', function () {
-        assert.throw(aTT.bind(null, -500, .5, 1), RangeError);
+        assert.throw(aTT.bind(null, -500, 0.5, 1), RangeError);
         assert.throw(aTT.bind(null, -195.75, -0.1, 1), RangeError);
         assert.throw(aTT.bind(null, -195.75, 1.1, 1), RangeError);
     });
 
     it('should return numeric values', function () {
-        assert.typeOf(aTT(12, .5, 1), 'number');
+        assert.typeOf(aTT(12, 0.5, 1), 'number');
     });
 });
 
@@ -41,8 +41,8 @@ describe('windChill.windChillIndex', function() {
     });
 
     it('should throw RangeError when called with too high or too low values', function () {
-        assert.throw(wc.bind(null, -500, .5), RangeError);
-        assert.throw(wc.bind(null, 100, .5), RangeError);
+        assert.throw(wc.bind(null, -500, 0.5), RangeError);
+        assert.throw(wc.bind(null, 100, 0.5), RangeError);
     });
 
     it('should return numeric values', function () {
@@ -63,8 +63,8 @@ describe('windChill.windChillIndex.customaryUnits', function() {
     });
 
     it('should throw RangeError when called with too high or too low values', function () {
-        assert.throw(wc.bind(null, -500, .5), RangeError);
-        assert.throw(wc.bind(null, 100, .5), RangeError);
+        assert.throw(wc.bind(null, -500, 0.5), RangeError);
+        assert.throw(wc.bind(null, 100, 0.5), RangeError);
     });
 
     it('should return numeric values', function () {

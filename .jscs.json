@@ -1,0 +1,14 @@
+{
+    "requireSpaceAfterKeywords": ["if", "for", "while", "do", "switch", "try", "catch"],
+    "disallowKeywordsOnNewLine": ["else"],
+    "requireLeftStickedOperators": [","],
+    "disallowMultipleLineStrings": true,
+    "disallowLeftStickedOperators": ["?", "+", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<="],
+    "disallowRightStickedOperators": ["?", "+", "/", "*", ":", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<="],
+    "requireRightStickedOperators": ["!"],
+    "excludeFiles": [
+        "node_modules",
+        "tools",
+        "coverage"
+    ]
+}
